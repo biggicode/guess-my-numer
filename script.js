@@ -34,5 +34,4 @@ document.querySelector('.check').addEventListener('click', () => {
         "You lost the battle! Don't be sad! Win the war🎉";
     }
   }
-  console.log(userInput);
 });
