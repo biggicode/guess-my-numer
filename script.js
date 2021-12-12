@@ -6,11 +6,19 @@ let score = 20;
 document.querySelector('.check').addEventListener('click', () => {
   let userInput = Number(document.querySelector('.guess').value);
 
+  //When input is invalid
   if (!userInput) {
     document.querySelector('.message').textContent =
       "This isn't a valid number!☢";
+
+    //When user wins
   } else if (userInput === randomNumber) {
     document.querySelector('.message').textContent = 'Yeeey!👏 You won!🎉';
+    document.querySelector('body').style.backgroundColor = 'green';
+    document.querySelector('.number').style.width = '30rem';
+    document.querySelector('.number').textContent = randomNumber;
+
+    //When input is high
   } else if (userInput > randomNumber) {
     if (score > 1) {
       document.querySelector('.message').textContent = 'Keep trying!!🎆To high';
@@ -22,6 +30,7 @@ document.querySelector('.check').addEventListener('click', () => {
       document.querySelector('.message').textContent =
         "You lost the battle! Don't be sad! Win the war🎉";
     }
+    //When input is low
   } else if (userInput < randomNumber) {
     if (score > 1) {
       document.querySelector('.message').textContent = 'To Loooooow! 🎇';
@@ -34,5 +43,4 @@ document.querySelector('.check').addEventListener('click', () => {
         "You lost the battle! Don't be sad! Win the war🎉";
     }
   }
-  console.log(userInput);
 });
