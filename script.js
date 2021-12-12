@@ -1,6 +1,6 @@
 'use strict';
 
-const randomNumber = Math.floor(Math.random() * 20) + 1;
+let randomNumber = Math.floor(Math.random() * 20) + 1;
 let score = 20;
 
 document.querySelector('.check').addEventListener('click', () => {
@@ -43,4 +43,17 @@ document.querySelector('.check').addEventListener('click', () => {
         "You lost the battle! Don't be sad! Win the war🎉";
     }
   }
+});
+
+//Again button
+
+document.querySelector('.again').addEventListener('click', () => {
+  randomNumber = Math.floor(Math.random() * 20) + 1;
+  score = 20;
+  document.querySelector('.score').textContent = score;
+  document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.guess').value = '';
 });
