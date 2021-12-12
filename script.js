@@ -17,6 +17,8 @@ document.querySelector('.check').addEventListener('click', () => {
       score--;
       document.querySelector('.score').textContent = score;
     } else {
+      score--;
+      document.querySelector('.score').textContent = score;
       document.querySelector('.message').textContent =
         "You lost the battle! Don't be sad! Win the war🎉";
     }
@@ -26,6 +28,8 @@ document.querySelector('.check').addEventListener('click', () => {
       score--;
       document.querySelector('.score').textContent = score;
     } else {
+      score--;
+      document.querySelector('.score').textContent = score;
       document.querySelector('.message').textContent =
         "You lost the battle! Don't be sad! Win the war🎉";
     }
