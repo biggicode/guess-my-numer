@@ -2,6 +2,7 @@
 
 let randomNumber = Math.floor(Math.random() * 20) + 1;
 let score = 20;
+let biggestScore = 0;
 
 document.querySelector('.check').addEventListener('click', () => {
   let userInput = Number(document.querySelector('.guess').value);
@@ -17,6 +18,11 @@ document.querySelector('.check').addEventListener('click', () => {
     document.querySelector('body').style.backgroundColor = 'green';
     document.querySelector('.number').style.width = '30rem';
     document.querySelector('.number').textContent = randomNumber;
+
+    if (score > biggestScore) {
+      biggestScore = score;
+      document.querySelector('.highscore').textContent = biggestScore;
+    }
 
     //When input is high
   } else if (userInput > randomNumber) {
