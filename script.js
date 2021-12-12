@@ -7,16 +7,31 @@ document.querySelector('.check').addEventListener('click', () => {
   let userInput = Number(document.querySelector('.guess').value);
 
   if (!userInput) {
-    if (userInput === randomNumber) {
-      document.querySelector('.message').textContent = 'Yeeey!👏 You won!🎉';
-    } else if (userInput > randomNumber) {
+    document.querySelector('.message').textContent =
+      "This isn't a valid number!☢";
+  } else if (userInput === randomNumber) {
+    document.querySelector('.message').textContent = 'Yeeey!👏 You won!🎉';
+  } else if (userInput > randomNumber) {
+    if (score > 1) {
       document.querySelector('.message').textContent = 'Keep trying!!🎆To high';
       score--;
       document.querySelector('.score').textContent = score;
-    } else if (userInput < randomNumber) {
+    } else {
+      score--;
+      document.querySelector('.score').textContent = score;
+      document.querySelector('.message').textContent =
+        "You lost the battle! Don't be sad! Win the war🎉";
+    }
+  } else if (userInput < randomNumber) {
+    if (score > 1) {
       document.querySelector('.message').textContent = 'To Loooooow! 🎇';
       score--;
       document.querySelector('.score').textContent = score;
+    } else {
+      score--;
+      document.querySelector('.score').textContent = score;
+      document.querySelector('.message').textContent =
+        "You lost the battle! Don't be sad! Win the war🎉";
     }
   }
   console.log(userInput);
