@@ -4,17 +4,24 @@ let randomNumber = Math.floor(Math.random() * 20) + 1;
 let score = 20;
 let biggestScore = 0;
 
+const showMessage = (message) => {
+  document.querySelector('.message').textContent = message;
+};
+
 document.querySelector('.check').addEventListener('click', () => {
   let userInput = Number(document.querySelector('.guess').value);
 
   //When input is invalid
   if (!userInput) {
-    document.querySelector('.message').textContent =
-      "This isn't a valid number!☢";
+    // document.querySelector('.message').textContent =
+    //   "This isn't a valid number!☢";
+
+    showMessage("This isn't a valid number!☢");
 
     //When user wins
   } else if (userInput === randomNumber) {
-    document.querySelector('.message').textContent = 'Yeeey!👏 You won!🎉';
+    // document.querySelector('.message').textContent = 'Yeeey!👏 You won!🎉';
+    showMessage('Yeeey!👏 You won!🎉');
     document.querySelector('body').style.backgroundColor = 'green';
     document.querySelector('.number').style.width = '30rem';
     document.querySelector('.number').textContent = randomNumber;
@@ -27,15 +34,20 @@ document.querySelector('.check').addEventListener('click', () => {
     //When input is high
   } else if (userInput !== randomNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent =
-        userInput > randomNumber ? 'Keep trying!!🎆To high' : 'To Loooooow!🎇';
+      // document.querySelector('.message').textContent =
+      //   userInput > randomNumber ? 'Keep trying!!🎆To high' : 'To Loooooow!🎇';
+      showMessage(
+        userInput > randomNumber ? 'Keep trying!!🎆To high' : 'To Loooooow!🎇'
+      );
+
       score--;
       document.querySelector('.score').textContent = score;
     } else {
       score--;
       document.querySelector('.score').textContent = score;
-      document.querySelector('.message').textContent =
-        "You lost the battle! Don't be sad! Win the war🎉";
+      // document.querySelector('.message').textContent =
+      //   "You lost the battle! Don't be sad! Win the war🎉";
+      showMessage("You lost the battle! Don't be sad! Win the war🎉");
     }
   }
   //  else if (userInput > randomNumber) {
@@ -70,7 +82,8 @@ document.querySelector('.again').addEventListener('click', () => {
   randomNumber = Math.floor(Math.random() * 20) + 1;
   score = 20;
   document.querySelector('.score').textContent = score;
-  document.querySelector('.message').textContent = 'Start guessing...';
+  // document.querySelector('.message').textContent = 'Start guessing...';
+  showMessage('Start guessing...');
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
   document.querySelector('.number').textContent = '?';
