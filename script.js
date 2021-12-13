@@ -25,21 +25,10 @@ document.querySelector('.check').addEventListener('click', () => {
     }
 
     //When input is high
-  } else if (userInput > randomNumber) {
+  } else if (userInput !== randomNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent = 'Keep trying!!🎆To high';
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      score--;
-      document.querySelector('.score').textContent = score;
       document.querySelector('.message').textContent =
-        "You lost the battle! Don't be sad! Win the war🎉";
-    }
-    //When input is low
-  } else if (userInput < randomNumber) {
-    if (score > 1) {
-      document.querySelector('.message').textContent = 'To Loooooow! 🎇';
+        userInput > randomNumber ? 'Keep trying!!🎆To high' : 'To Loooooow!🎇';
       score--;
       document.querySelector('.score').textContent = score;
     } else {
@@ -49,6 +38,30 @@ document.querySelector('.check').addEventListener('click', () => {
         "You lost the battle! Don't be sad! Win the war🎉";
     }
   }
+  //  else if (userInput > randomNumber) {
+  //   if (score > 1) {
+  //     document.querySelector('.message').textContent = 'Keep trying!!🎆To high';
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //     document.querySelector('.message').textContent =
+  //       "You lost the battle! Don't be sad! Win the war🎉";
+  //   }
+  //   //When input is low
+  // } else if (userInput < randomNumber) {
+  //   if (score > 1) {
+  //     document.querySelector('.message').textContent = 'To Loooooow! 🎇';
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //     document.querySelector('.message').textContent =
+  //       "You lost the battle! Don't be sad! Win the war🎉";
+  //   }
+  // }
 });
 
 //Again button
